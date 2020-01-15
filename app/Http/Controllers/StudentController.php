@@ -9,4 +9,8 @@ class StudentController extends Controller
     public function index(){
         return view('welcome');
     }
+
+    public function create(){
+        return "hola voy a crear algo grande";
+    }
 }
