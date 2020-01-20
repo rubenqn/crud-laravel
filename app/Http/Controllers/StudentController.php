@@ -11,6 +11,7 @@ class StudentController extends Controller
     }
 
     public function create(){
-        return "hola voy a crear algo grande";
+        //return "hola voy a crear algo grande";
+        return view('create');
     }
 }
