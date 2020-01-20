@@ -29,7 +29,7 @@ class StudentController extends Controller
     $estudiante->mail = $request->mail;
     $estudiante->telefono = $request->telefono;
     $estudiante->save();
-    return redirect (route('home'));
+    return redirect (route('home'))->with('successMsg','Estudiante añadido correctamente');
 
     }
 }
