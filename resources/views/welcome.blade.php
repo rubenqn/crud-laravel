@@ -30,7 +30,7 @@
             <td>{{$estudiante->mail}}</td>
             <td>{{$estudiante->telefono}}</td>
             <td>
-                <a class="btn btn-raised btn-primary btn-sm" href=""><i class="fas fa-user-edit"></i></a>
+                <a class="btn btn-raised btn-primary btn-sm" href="{{route('edit',$estudiante->id)}}"><i class="fas fa-user-edit"></i></a>
                 <a class="btn btn-raised btn-danger btn-sm" href=""><i class="fas fa-user-times"></i></a>
             </td>
         </tr>
