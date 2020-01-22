@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class StudentController extends Controller
 {
     public function index(){
-        $estudiantes = Students::all();
+        $estudiantes = Students::paginate(4);
         return view('welcome',compact('estudiantes'));
     }
 
@@ -59,6 +59,6 @@ class StudentController extends Controller
     public function delete($id){
         $estudiante = Students::find($id);
         $estudiante -> delete();
-        return redirect (route('home'))->with('successMsg','Estudiante borrado correctamente');
+        return redirect (route('home'))->with('successMsg','Estudiante ' . $id . ' borrado correctamente');
     }
 }

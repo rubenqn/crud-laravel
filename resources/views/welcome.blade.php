@@ -31,11 +31,26 @@
             <td>{{$estudiante->telefono}}</td>
             <td>
                 <a class="btn btn-raised btn-primary btn-sm" href="{{route('edit',$estudiante->id)}}"><i class="fas fa-user-edit"></i></a>
-                <a class="btn btn-raised btn-danger btn-sm" href="{{route('delete',$estudiante->id)}}"><i class="fas fa-user-times"></i></a>
+                <form method="POST" id="delete-form-{{$estudiante->id}}" action="{{route('delete',$estudiante->id)}}" style="display: none;">
+                    {{csrf_field()}}
+                    {{method_field('delete')}}
+                </form>
+                <button onclick="
+                                    if (confirm('Estas seguro de borrar?')){
+                                        document.getElementById('delete-form-{{$estudiante->id}}').submit();
+                                    }
+                                    else{
+                                        event.preventDefault();
+                                    }
+                                " 
+                class="btn btn-raised btn-danger btn-sm">
+                    <i class="fas fa-trash-alt"></i>
+                </button>
+                <!-- <a class="btn btn-raised btn-danger btn-sm" href="{{route('delete',$estudiante->id)}}"><i class="fas fa-user-times"></i></a> -->
             </td>
         </tr>
         @endforeach
     </tbody>
 </table>
-
+{{$estudiantes->links()}}
 @endsection
